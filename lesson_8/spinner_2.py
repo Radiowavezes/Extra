@@ -8,11 +8,10 @@ def spinner(seconds, some_list, now_time):
         if elapsed_time > seconds:
             break
         else:
-            for i in range(seconds):
-                for j in range(len(some_list)):
-                    print(some_list[j] * 3, end='')
-                    time.sleep(0.33)
-                    print('\r' * 3, end='')
+            for j in range(len(some_list)):
+                print(some_list[j] * 3, end='')
+                time.sleep(0.33)
+                print('\r' * 3, end='')
 
         
 
