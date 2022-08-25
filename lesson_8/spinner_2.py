@@ -14,7 +14,6 @@ def spinner(seconds, some_list, now_time):
                     print(some_list[j], end='')
         
 
-start_time = time.time()
 list_of_symb = [
         '\\\\\\\r\r\r', 
         '|||\r\r\r', 
@@ -22,4 +21,4 @@ list_of_symb = [
         '---\r\r\r']
 
 
-spinner(int(input('How long do you want to watch this??? Seconds --> ')), list_of_symb, start_time)
+spinner(int(input('How long do you want to watch this??? Seconds --> ')), list_of_symb, time.time())
