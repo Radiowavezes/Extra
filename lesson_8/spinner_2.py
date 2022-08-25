@@ -1,7 +1,7 @@
 import time
 
 
-def spinner(seconds, some_list, now_time):
+def spinner(seconds, some_list, now_time, n=3):
     while True:
         current_time = time.time()
         elapsed_time = current_time - now_time
@@ -9,9 +9,9 @@ def spinner(seconds, some_list, now_time):
             break
         else:
             for symbol in some_list:
-                print(symbol * 3, end='')
+                print(symbol * n, end='')
                 time.sleep(0.33)
-                print('\r' * 3, end='')
+                print('\r' * n, end='')
 
         
 
