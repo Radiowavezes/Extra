@@ -1,6 +1,7 @@
 def enclosing_number(number):
-    '''including enclosed function
-    for multipluing two numbers'''
+    '''includes enclosed function
+    for multiplying two numbers
+    '''
     def enclosed_number(multiplier):
         return number * multiplier
     return enclosed_number
