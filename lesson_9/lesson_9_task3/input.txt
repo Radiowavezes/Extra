@@ -1,0 +1,4 @@
+You can think of packages as the directories on a file system and modules as files within directories, 
+but don’t take this analogy too literally since packages and modules need not originate from the file system. 
+For the purposes of this documentation, we’ll use this convenient analogy of directories and files. Like file system directories, 
+packages are organized hierarchically, and packages may themselves contain subpackages, as well as regular modules.
