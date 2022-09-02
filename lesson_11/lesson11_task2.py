@@ -29,7 +29,7 @@ while True:
             break
         else:
             print("Please, input your number of choice, from 0 to 4: ")
-if input_action == 1:
+if input_action == 1: # to add data
     full_name = input("Enter the full name: ")
     if update_phonebook.get(full_name) == None:
         phone = input("Enter the phone: ")
@@ -48,7 +48,7 @@ if input_action == 1:
         pprint(update_phonebook[full_name])
     else:
         print("Such record already exists!")
-elif input_action == 2:
+elif input_action == 2: # to find data
     to_find = input("Input parameters to search a record: ")
     is_found = 0
     for person, params in update_phonebook.items():
@@ -62,7 +62,7 @@ elif input_action == 2:
                     is_found = 1
     if not is_found:
         print("Sorry, there's no record with such parameters")
-elif input_action == 3:
+elif input_action == 3: # to delete a record
     to_del = input("Input the phonenumber to delete a record: ")
     is_del = 0
     for person, params in update_phonebook.copy().items():
@@ -75,7 +75,7 @@ elif input_action == 3:
     else:
         print("Sorry, there's no record with such phonenumber")
 
-elif input_action == 4:
+elif input_action == 4: # to update a record
     to_upd = input("Input the phonenumber to update a record: ")
     is_upd = 0
     for person, params in update_phonebook.copy().items():
@@ -86,7 +86,7 @@ elif input_action == 4:
                     params[data_to_upd] = input(f"Enter the {data_to_upd}: ")
     if not is_upd:
         print("Sorry, there's no record with such phonenumber")
-else:
+else: # to exit
     print("Good bye!")
 with open("phonebook", "w") as output_file:
     json.dump(update_phonebook, output_file)
