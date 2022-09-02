@@ -82,8 +82,8 @@ elif input_action == 4:
         for key, value in params.items():
             if to_upd in value:
                 is_upd = 1
-                for data_to_update in params:
-                    params[data_to_update] = input(f"Enter the {data_to_update}: ")
+                for data_to_upd in params:
+                    params[data_to_upd] = input(f"Enter the {data_to_upd}: ")
     if not is_upd:
         print("Sorry, there's no record with such phonenumber")
 else:
