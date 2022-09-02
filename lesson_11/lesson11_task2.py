@@ -30,26 +30,26 @@ while True:
         else:
             print("Please, input your number of choice, from 0 to 4: ")
 if input_action == 1:
-    full_name = input('Enter the full name: ')
+    full_name = input("Enter the full name: ")
     if update_phonebook.get(full_name) == None:
-        phone = input('Enter the phone: ')
-        town = input('Enter the city: ')
-        state = input('Enter the state: ')
+        phone = input("Enter the phone: ")
+        town = input("Enter the city: ")
+        state = input("Enter the state: ")
         update_phonebook.setdefault(
-                                full_name,
-                                    { 
-                                    'first_name': full_name.split()[0],
-                                    'last_name': full_name.split()[1],
-                                    'Phonenumber': phone,
-                                    'City': town,
-                                    'State': state,
-                                }
-                            )
+            full_name,
+            {
+                "first_name": full_name.split()[0],
+                "last_name": full_name.split()[1],
+                "Phonenumber": phone,
+                "City": town,
+                "State": state,
+            },
+        )
         pprint(update_phonebook[full_name])
     else:
-        print('Such record already exists!')
+        print("Such record already exists!")
 elif input_action == 2:
-    to_find = input('Input parameters to search a record: ')
+    to_find = input("Input parameters to search a record: ")
     is_found = 0
     for person, params in update_phonebook.items():
         if to_find.lower() in person.lower():
@@ -61,9 +61,9 @@ elif input_action == 2:
                     pprint(update_phonebook[person])
                     is_found = 1
     if not is_found:
-        print('Sorry, there\'s no record with such parameters')
+        print("Sorry, there's no record with such parameters")
 elif input_action == 3:
-    to_del = input('Input the phonenumber to delete a record: ')
+    to_del = input("Input the phonenumber to delete a record: ")
     is_del = 0
     for person, params in update_phonebook.copy().items():
         for key, value in params.items():
@@ -71,22 +71,22 @@ elif input_action == 3:
                 update_phonebook.pop(person)
                 is_del = 1
     if is_del:
-        print('Done')
+        print("Done")
     else:
-        print('Sorry, there\'s no record with such phonenumber')
-        
+        print("Sorry, there's no record with such phonenumber")
+
 elif input_action == 4:
-    to_upd = input('Input the phonenumber to update a record: ')
+    to_upd = input("Input the phonenumber to update a record: ")
     is_upd = 0
     for person, params in update_phonebook.copy().items():
         for key, value in params.items():
             if to_upd in value:
                 is_upd = 1
                 for data_to_update in params:
-                    params[data_to_update] = input(f'Enter the {data_to_update}: ')
+                    params[data_to_update] = input(f"Enter the {data_to_update}: ")
     if not is_upd:
-        print('Sorry, there\'s no record with such phonenumber')
+        print("Sorry, there's no record with such phonenumber")
 else:
-    print('Good bye!')
-with open('phonebook', 'w') as output_file:
+    print("Good bye!")
+with open("phonebook", "w") as output_file:
     json.dump(update_phonebook, output_file)
