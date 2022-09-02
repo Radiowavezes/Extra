@@ -44,28 +44,45 @@ if input_action == 1:
                                 'State': state,
                             }
                         )
+    pprint(update_phonebook[full_name])
 elif input_action == 2:
     to_find = input('Input parameters to search a record: ')
+    is_found = 0
     for person, params in update_phonebook.items():
         if to_find.lower() in person.lower():
             pprint(update_phonebook[person])
+            is_found = 1
         else:
             for value in params.values():
                 if to_find.lower() in value.lower():
                     pprint(update_phonebook[person])
+                    is_found = 1
+    if not is_found:
+        print('Sorry, there\'s no record with such parameters')
 elif input_action == 3:
     to_del = input('Input the phonenumber to delete a record: ')
+    is_del = 0
     for person, params in update_phonebook.copy().items():
         for key, value in params.items():
             if to_del in value:
                 update_phonebook.pop(person)
+                is_del = 1
+    if is_del:
+        print('Done')
+    else:
+        print('Sorry, there\'s no record with such phonenumber')
+        
 elif input_action == 4:
     to_upd = input('Input the phonenumber to update a record: ')
+    is_upd = 0
     for person, params in update_phonebook.copy().items():
         for key, value in params.items():
             if to_upd in value:
+                is_upd = 1
                 for data_to_update in params:
                     params[data_to_update] = input(f'Enter the {data_to_update}: ')
+    if not is_upd:
+        print('Sorry, there\'s no record with such phonenumber')
 else:
     print('Good bye!')
 with open('phonebook', 'w') as output_file:
