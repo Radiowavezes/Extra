@@ -31,20 +31,23 @@ while True:
             print("Please, input your number of choice, from 0 to 4: ")
 if input_action == 1:
     full_name = input('Enter the full name: ')
-    phone = input('Enter the phone: ')
-    town = input('Enter the city: ')
-    state = input('Enter the state: ')
-    update_phonebook.setdefault(
-                            full_name,
-                                { 
-                                'first_name': full_name.split()[0],
-                                'last_name': full_name.split()[1],
-                                'Phonenumber': phone,
-                                'City': town,
-                                'State': state,
-                            }
-                        )
-    pprint(update_phonebook[full_name])
+    if update_phonebook.get(full_name) == None:
+        phone = input('Enter the phone: ')
+        town = input('Enter the city: ')
+        state = input('Enter the state: ')
+        update_phonebook.setdefault(
+                                full_name,
+                                    { 
+                                    'first_name': full_name.split()[0],
+                                    'last_name': full_name.split()[1],
+                                    'Phonenumber': phone,
+                                    'City': town,
+                                    'State': state,
+                                }
+                            )
+        pprint(update_phonebook[full_name])
+    else:
+        print('Such record already exists!')
 elif input_action == 2:
     to_find = input('Input parameters to search a record: ')
     is_found = 0
@@ -64,7 +67,7 @@ elif input_action == 3:
     is_del = 0
     for person, params in update_phonebook.copy().items():
         for key, value in params.items():
-            if to_del in value:
+            if to_del == value:
                 update_phonebook.pop(person)
                 is_del = 1
     if is_del:
