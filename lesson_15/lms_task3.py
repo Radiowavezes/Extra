@@ -1,5 +1,5 @@
 class TVController:
-    def __init__(self, channels, pos=1):
+    def __init__(self, channels):
         self.ch = {x: y for x, y in zip(range(1, len(channels) + 1), channels)}
         self.n = len(channels)
         self.current = self.ch[1]
