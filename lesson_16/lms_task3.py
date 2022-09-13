@@ -37,7 +37,7 @@ class ProductStore:
                         )
                     else:
                         for good, datum in self.storage[Product.type].items():
-                            if Product.name == good:
+                            if Product.name.lower() == good.lower():
                                 datum["total"] = datum.get("total") + amount
 
     def set_discount(self, identifier, percent):
@@ -45,7 +45,7 @@ class ProductStore:
         for type, name in self.storage.items():
             if identifier not in type:
                 for good, datum in name.items():
-                    if good == identifier:
+                    if good.lower() == identifier.lower():
                         datum["sale"] = round(datum.get("sale") * i, 2)
             else:
                 for datum in name.values():
@@ -54,34 +54,25 @@ class ProductStore:
     def sell_product(self, product_name, amount):
         for name in self.storage.values():
             for good, datum in name.items():
-                if product_name == good:
+                if product_name.lower() == good.lower():
                     datum["total"] -= amount
-                    self.income += round(((datum["sale"] - datum["price"]) * amount), 2)
+                    inc = (datum["sale"] - datum["price"]) * amount
+                    self.income += inc
+                    print(f'You\'ve became richer for ${round(inc, 2)}')
 
     def get_income(self):
-        print(self.income)
+        return f'${round(self.income, 2)}'
+    
+    def get_all_products(self):
+        pprint(self.storage)
+
+    def get_product_info(self, product_name):
+        for name in self.storage.values():
+            for good, datum in name.items():
+                if good.lower() == product_name.lower():
+                    return (good, datum['total'])
 
 
-onion = Product("VEGETABLES", "Onion", 2.55)
-mentos = Product("CANDIES", "Mentos", 1.11)
-c = ProductStore()
-c.add(onion, 100)
-c.add(mentos, 55)
-salmon = Product("FISH", "Salmon", 6.99)
-c.add(salmon, 40)
-c.add(salmon, 10)
-potatoe = Product("VEGETABLES", "Potatoe", 1.98)
-c.add(potatoe, 74)
-orbit = Product("CANDIES", "Orbit", 1.5)
-perch = Product("FISH", "Perch", 3.15)
-c.add(orbit, 111)
-c.add(orbit, 45)
-c.add(perch, 55)
-# pprint(c.storage)
-c.set_discount("Salmon", 5)
-# pprint(c.storage)
-c.set_discount("CANDIES", 5)
-pprint(c.storage)
-c.sell_product("Orbit", 30)
-c.get_income()
-pprint(c.storage)
+
+s = ProductStore()
+s.get_all_products()
