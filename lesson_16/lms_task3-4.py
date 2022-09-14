@@ -57,10 +57,12 @@ class ProductStore:
 
     def add(self, product, amount):
         '''
-        Updates the storage dicts with new values.
+        Updates the storage dicts with new values:
+        type of goods, brandname, purchasing price, 
+        selling price +30%, amount.
         If product is already exist, only increases
-        it's amount. Prints the storage with pprint
-        module after updating.
+        it's amount. Prints the product type storage 
+        with pprint module after updating.
         '''
         if product.kind not in self.storage:
             self.storage[product.kind] = {
@@ -113,7 +115,8 @@ class ProductStore:
         '''
         Decrease the value of total with 'amount 'on the spesific 
         product 'product_name'. If amount is bigger than total,
-        raises an error.
+        raises an error. If everything done well, prints the
+        message of instant profit.
         '''
         for name in self.storage.values():
             for good, datum in name.items():
