@@ -62,6 +62,7 @@ class Worker:
         self.name = name
         self.company = company
         self._chief = chief
+        chief.workers.append(self.name)
 
     @property
     def chief(self):
@@ -77,6 +78,7 @@ class Worker:
         try:
             if isinstance(new_boss, Boss):
                 if new_boss.company == self.company:
+                    self._chief.workers.remove(self.name)
                     self._chief = new_boss
                     new_boss.workers.append(self.name)
                 else:
@@ -102,3 +104,4 @@ print(bob)
 mary.chief = hugo
 print(mary)
 print(hugo)
+print(bob)
