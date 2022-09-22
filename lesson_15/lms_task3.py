@@ -49,13 +49,13 @@ class TVController:
                 return "No"
 
 
-CHANNELS = ["BBC", "Discovery", "TV1000"]
-controller = TVController(CHANNELS)
-print(controller.first_channel())
-print(controller.last_channel())
-print(controller.turn_channel(1))
-print(controller.next_channel())
-print(controller.previous_channel())
-print(controller.current_channel())
-print(controller.is_exist(4))
-print(controller.is_exist("BBC"))
+# CHANNELS = ["BBC", "Discovery", "TV1000"]
+# controller = TVController(CHANNELS)
+# print(controller.first_channel())
+# print(controller.last_channel())
+# print(controller.turn_channel(1))
+# print(controller.next_channel())
+# print(controller.previous_channel())
+# print(controller.current_channel())
+# print(controller.is_exist(4))
+# print(controller.is_exist("BBC"))
