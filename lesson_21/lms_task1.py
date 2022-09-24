@@ -13,6 +13,10 @@ class OpenFile:
         return self.file
 
     def __exit__(self, *exc):
+        if any(exc):
+            print(exc)
+            print('It works!')
+            self.logs.write(f'{str(exc)}\n')
         self.logs.write(f'{OpenFile.counter}\n')
         self.logs.write(f'{datetime.now()}\n')
         self.file.write('(c) Copyright 2022\n')
@@ -30,4 +34,4 @@ with OpenFile('Hello') as inF:
 
 with OpenFile('Hello') as inF:
     inF.write('is Friday!\n')
-
+    raise ValueError('Trying to get the error')
