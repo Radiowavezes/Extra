@@ -13,6 +13,10 @@ class MyIterator:
         self.start += 1
         return self.start - 1
 
+    def __getitem__(self, key):
+        return key - 1
+        
+
 class MyGenerator:
     def __init__(self, start, stop):
         self.start = start
@@ -26,6 +30,7 @@ class MyGenerator:
 
 
 a = MyIterator(10)
+print(a[2])
 b = [i for i in a]
 c = iter(a)
 print(b)
