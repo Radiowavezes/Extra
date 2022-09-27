@@ -1,6 +1,6 @@
 class TVController:
     def __init__(self, channels):
-        self.ch = {x: y for x, y in zip(range(1, len(channels) + 1), channels)}
+        self.ch = {x: y for x, y in enumerate(channels, 1)}
         self.n = len(channels)
         self.current = self.ch[1]
 
@@ -49,13 +49,13 @@ class TVController:
                 return "No"
 
 
-# CHANNELS = ["BBC", "Discovery", "TV1000"]
-# controller = TVController(CHANNELS)
-# print(controller.first_channel())
-# print(controller.last_channel())
-# print(controller.turn_channel(1))
-# print(controller.next_channel())
-# print(controller.previous_channel())
-# print(controller.current_channel())
-# print(controller.is_exist(4))
-# print(controller.is_exist("BBC"))
+CHANNELS = ["BBC", "Discovery", "TV1000"]
+controller = TVController(CHANNELS)
+print(controller.first_channel())
+print(controller.last_channel())
+print(controller.turn_channel(1))
+print(controller.next_channel())
+print(controller.previous_channel())
+print(controller.current_channel())
+print(controller.is_exist(4))
+print(controller.is_exist("BBC"))
