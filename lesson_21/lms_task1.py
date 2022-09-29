@@ -19,19 +19,17 @@ class OpenFile:
             self.logs.write(f'{str(exc)}\n')
         self.logs.write(f'{OpenFile.counter}\n')
         self.logs.write(f'{datetime.now()}\n')
-        self.file.write('(c) Copyright 2022\n')
         self.file.close()
 
 
-with OpenFile('Hello') as inF:
-    inF.write('Hello!\n')
+# with OpenFile('Hello') as inF:
+#     inF.write('Hello!\n')
 
-with OpenFile('Hello') as inF:
-    inF.write('Python!\n')
+# with OpenFile('Hello') as inF:
+#     inF.write('Python!\n')
 
-with OpenFile('Hello') as inF:
-    inF.write('Today!\n')
+# with OpenFile('Hello') as inF:
+#     inF.write('Today!\n')
 
-with OpenFile('Hello') as inF:
-    inF.write('is Friday!\n')
-    raise ValueError('Trying to get the error')
+# with OpenFile('Hello') as inF:
+#     inF.write('is Friday!\n')
