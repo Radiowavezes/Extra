@@ -14,8 +14,7 @@ class OpenFile:
 
     def __exit__(self, *exc):
         if any(exc):
-            print(exc)
-            print('It works!')
+            print('It works with errors')
             self.logs.write(f'{str(exc)}\n')
         self.logs.write(f'{OpenFile.counter}\n')
         self.logs.write(f'{datetime.now()}\n')
@@ -31,5 +30,5 @@ class OpenFile:
 # with OpenFile('Hello') as inF:
 #     inF.write('Today!\n')
 
-# with OpenFile('Hello') as inF:
-#     inF.write('is Friday!\n')
+with OpenFile('Hello') as inF:
+    inF.write('is Friday!\n')

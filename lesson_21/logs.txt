@@ -301,3 +301,81 @@
 2022-09-29 22:02:45.227480
 2
 2022-09-29 22:02:45.242137
+1
+2022-09-30 14:10:33.288664
+2
+2022-09-30 14:10:33.298637
+(<class 'AttributeError'>, AttributeError('Some text'), <traceback object at 0x000002558EABB240>)
+1
+2022-09-30 14:13:36.800124
+(<class 'AttributeError'>, AttributeError('Some text'), <traceback object at 0x000002912D3ECC40>)
+1
+2022-09-30 14:27:51.078650
+(<class 'io.UnsupportedOperation'>, UnsupportedOperation('not writable'), <traceback object at 0x000001C057FBCBC0>)
+1
+2022-09-30 14:27:55.510994
+(<class 'io.UnsupportedOperation'>, UnsupportedOperation('not writable'), <traceback object at 0x000002D069193E40>)
+1
+2022-09-30 14:28:37.677597
+(<class 'io.UnsupportedOperation'>, UnsupportedOperation('not writable'), <traceback object at 0x0000018D3647CBC0>)
+1
+2022-09-30 14:29:13.370587
+(<class 'io.UnsupportedOperation'>, UnsupportedOperation('not writable'), <traceback object at 0x000001DAF30AF800>)
+1
+2022-09-30 14:34:09.744950
+(<class 'io.UnsupportedOperation'>, UnsupportedOperation('not writable'), <traceback object at 0x0000019BEC253240>)
+1
+2022-09-30 14:34:28.209187
+(<class 'io.UnsupportedOperation'>, UnsupportedOperation('not writable'), <traceback object at 0x00000222A2F9C740>)
+1
+2022-09-30 14:36:10.741871
+(<class 'io.UnsupportedOperation'>, UnsupportedOperation('not writable'), <traceback object at 0x000001E9AD7D78C0>)
+1
+2022-09-30 14:36:50.388198
+(<class 'io.UnsupportedOperation'>, UnsupportedOperation('not writable'), <traceback object at 0x00000168317C0FC0>)
+1
+2022-09-30 14:43:59.054014
+(<class 'io.UnsupportedOperation'>, UnsupportedOperation('not writable'), <traceback object at 0x00000179AF09F100>)
+1
+2022-09-30 14:44:22.151670
+(<class 'io.UnsupportedOperation'>, UnsupportedOperation('not writable'), <traceback object at 0x000002F7A89DD9C0>)
+1
+2022-09-30 14:44:58.582866
+(<class 'io.UnsupportedOperation'>, UnsupportedOperation('not writable'), <traceback object at 0x00000169F3D53C00>)
+1
+2022-09-30 14:45:38.631943
+1
+2022-09-30 14:45:49.593676
+2
+2022-09-30 14:45:49.598662
+1
+2022-09-30 14:51:59.888541
+2
+2022-09-30 14:51:59.892533
+(<class 'AttributeError'>, AttributeError('!!!!!!!'), <traceback object at 0x0000023C12753240>)
+1
+2022-09-30 14:54:53.678696
+(<class 'AttributeError'>, AttributeError('!!!!!!!'), <traceback object at 0x0000028F5F6EF800>)
+1
+2022-09-30 14:55:08.832656
+(<class 'AttributeError'>, AttributeError('!!!!!!!'), <traceback object at 0x0000025D0F37F800>)
+1
+2022-09-30 14:56:01.934217
+(<class 'AttributeError'>, AttributeError(), <traceback object at 0x0000018E55DE78C0>)
+1
+2022-09-30 14:56:27.861937
+(<class 'ValueError'>, ValueError(), <traceback object at 0x0000021EB099B240>)
+1
+2022-09-30 15:36:13.683382
+(<class 'ValueError'>, ValueError('value must be 0 or None'), <traceback object at 0x000001C8F3322F00>)
+1
+2022-09-30 15:36:30.614397
+(<class 'ValueError'>, ValueError('value must be 0 or None'), <traceback object at 0x000001526CDFB240>)
+1
+2022-09-30 15:37:53.113326
+1
+2022-09-30 15:37:59.104949
+2
+2022-09-30 15:37:59.269509
+3
+2022-09-30 15:37:59.272501
