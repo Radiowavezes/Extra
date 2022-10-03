@@ -1,4 +1,3 @@
-from inspect import Attribute
 import pytest
 from lms_task1 import OpenFile
 
@@ -10,7 +9,7 @@ def openfile_to_test():
 
 def test_fails():
     with pytest.raises(Exception):
-        raise ValueError('value must be 0 or None')
+        raise AttributeError
 
 def test_if_exists(openfile_to_test):
     assert openfile_to_test.read() is not None
