@@ -30,5 +30,5 @@ class OpenFile:
 # with OpenFile('Hello') as inF:
 #     inF.write('Today!\n')
 
-with OpenFile('Hello') as inF:
-    inF.write('is Friday!\n')
+# with OpenFile('Hello') as inF:
+#     inF.write('is Friday!\n')
