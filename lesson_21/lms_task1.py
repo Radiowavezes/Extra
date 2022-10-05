@@ -13,21 +13,22 @@ class OpenFile:
         return self.file
 
     def __exit__(self, *exc):
+        if any(exc):
+            print('It works with errors')
+            self.logs.write(f'{str(exc)}\n')
         self.logs.write(f'{OpenFile.counter}\n')
         self.logs.write(f'{datetime.now()}\n')
-        self.file.write('(c) Copyright 2022\n')
         self.file.close()
 
 
-with OpenFile('Hello') as inF:
-    inF.write('Hello!\n')
+# with OpenFile('Hello') as inF:
+#     inF.write('Hello!\n')
 
-with OpenFile('Hello') as inF:
-    inF.write('Python!\n')
+# with OpenFile('Hello') as inF:
+#     inF.write('Python!\n')
 
-with OpenFile('Hello') as inF:
-    inF.write('Today!\n')
+# with OpenFile('Hello') as inF:
+#     inF.write('Today!\n')
 
-with OpenFile('Hello') as inF:
-    inF.write('is Friday!\n')
-
+# with OpenFile('Hello') as inF:
+#     inF.write('is Friday!\n')
