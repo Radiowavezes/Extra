@@ -42,16 +42,14 @@ class UnorderedList:
                 current.set_next(temp)
                 break
     
-    def index(self, number=None):
+    def index(self, number):
         indexed_list = {}
         current = self._head
         while current:
             for index in range(self.size()):
                 indexed_list[current.get_data()] = index
                 current = current.get_next()
-        if number is not None:
-            return indexed_list[number]
-        return indexed_list
+        return indexed_list[number]
     
     def slice(self, number):
         indexed_list = {}
