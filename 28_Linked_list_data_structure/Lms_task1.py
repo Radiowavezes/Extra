@@ -1,4 +1,18 @@
 class Node:
+    '''
+    Class creates a Node for node structures
+    ----------
+    Attributes:
+    - self._data - current element
+    - self._next - connection to the next element for the current
+    --------
+    Methods:
+    - get_data - shows the value of current Node
+    - get_next - shows the next value for the Node
+    - set_data - sets the value as current for Node
+    - set_next - sets the value as next for Node
+    
+    '''
     def __init__(self, data):
         self._data = data
         self._next = None
@@ -17,6 +31,28 @@ class Node:
 
 
 class UnorderedList:
+    '''
+    Class creates a node list
+    ----------
+    Atributes:
+    - self._head - list's body
+    --------
+    Methods:
+    - is_empty - shows if the list is empty
+    - add - to add node to the begining of the nodelist
+    - append - to add node to the end of the nodelist
+    - index - returns a node on the specified position
+    - slice_index - returns an index of a specified node
+        !!! also slice_index is used for __getitem__ magic
+        method to get a full indexed dictionary values !!!
+    -  pop - pops and returns the element with the given
+    index. With no index pops the last element. Negative
+    indexes are also allowed
+    - size - returns the length of the nodelist
+    - search - boolean functions, shows if the value is 
+    present in the nodelist or not
+    - remove - removes a specified value from the nodelist
+    '''
 
     def __init__(self):
         self._head = None
@@ -51,25 +87,32 @@ class UnorderedList:
                 current = current.get_next()
         return indexed_list[number]
     
-    def slice(self, number):
+    def slice_index(self, number=None):
         indexed_list = {}
         current = self._head
         while current:
             for index in range(self.size()):
                 indexed_list[index] = current.get_data()
                 current = current.get_next()
-        return indexed_list[number]
+        if number:
+            return indexed_list[number]
+        else:
+            return indexed_list.values()
     
-    def pop(self, number):
-        to_pop = self.slice(number)
-        self.remove(self.slice(number))
+    def pop(self, number=None):
+        if not number:
+            number = self.size() - 1
+        elif number < 0:
+            number += self.size()
+        to_pop = self.slice_index(number)
+        self.remove(to_pop)
         return to_pop
     
-    def __getitem__(self, key):
-        if isinstance(key, slice):
-            return list(list(self.index()).__getitem__(key))
+    def __getitem__(self, number):
+        if isinstance(number, slice):
+            return list(list(self.slice_index()).__getitem__(number))
         else:
-            return self.slice(key)
+            return self.slice_index(number)
 
     def size(self):
         current = self._head
@@ -108,15 +151,13 @@ class UnorderedList:
             previous.set_next(current.get_next())
 
     def __repr__(self):
-        representation = "<UnorderedList: "
+        representation = ""
         current = self._head
         while current is not None:
             representation += f"<- {current.get_data()} "
             current = current.get_next()
-        return representation + ">"
+        return representation
 
-    def __str__(self):
-        return self.__repr__()
 
 
 if __name__ == "__main__":
@@ -148,7 +189,7 @@ if __name__ == "__main__":
     # print(my_list.search(93))
     print(my_list.index(26))
     print(my_list)
-    print(my_list.pop(3))
+    print(my_list.pop())
     print(my_list)
     print(my_list[2:5])
     print(my_list[3])
