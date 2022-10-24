@@ -94,13 +94,13 @@ class UnorderedList:
             for index in range(self.size()):
                 indexed_list[index] = current.get_data()
                 current = current.get_next()
-        if number:
-            return indexed_list[number]
-        else:
+        if number is None:
             return indexed_list.values()
+        else:
+            return indexed_list[number]
     
     def pop(self, number=None):
-        if not number:
+        if number is None:
             number = self.size() - 1
         elif number < 0:
             number += self.size()
@@ -189,7 +189,7 @@ if __name__ == "__main__":
     # print(my_list.search(93))
     print(my_list.index(26))
     print(my_list)
-    print(my_list.pop())
+    print(my_list.pop(0))
     print(my_list)
     print(my_list[2:5])
     print(my_list[3])

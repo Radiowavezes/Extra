@@ -3,10 +3,10 @@ from Lms_task1 import UnorderedList
 class NodeStack(UnorderedList):
     
     def push(self, item):
-        return super().append(item)
+        return super().add(item)
     
-    def pop(self, number=None):
-        return super().pop(number)
+    def pop(self):
+        return super().pop(0)
     
     def size(self):
         return super().size()
@@ -17,11 +17,21 @@ class NodeStack(UnorderedList):
     def get_from_stack(self, item):
         return super().search(item)
     
-    def __repr__(self):
-        return super().__repr__()
 
 example = NodeStack()
 example.push(22)
+print(example)
 example.push(33)
+print(example)
 example.push(44)
+print(example)
+example.push(55)
+print(example)
+example.pop()
+print(example)
+example.pop()
+print(example)
+example.pop()
+print(example)
+example.pop()
 print(example)
