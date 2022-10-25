@@ -22,8 +22,7 @@ class NodeQueue:
                     break
         else:
             self._head = None
-            
-    
+
     def size(self):
         current = self._head
         count = 0
