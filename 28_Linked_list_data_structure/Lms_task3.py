@@ -1,21 +1,57 @@
-from Lms_task1 import UnorderedList
+from Lms_task1 import Node
 
-class NodeQueue(UnorderedList):
+class NodeQueue:
+    def __init__(self):
+        self._head = None
 
     def enqueue(self, item):
-        return super().add(item)
+        temp = Node(item)
+        temp.set_next(self._head)
+        self._head = temp
     
     def dequeue(self):
-        return super().pop()
+        current = self._head
+        next = self._head.get_next()
+        if next:
+            while next and current:
+                if next.get_next():
+                    current = next
+                    next = next.get_next()
+                else:
+                    current.set_next(None)
+                    break
+        else:
+            self._head = None
+            
     
     def size(self):
-        return super().size()
+        current = self._head
+        count = 0
+        while current is not None:
+            count += 1
+            current = current.get_next()
     
     def is_empty(self):
-        return super().is_empty()
+        return self._head is None
     
     def get_from_queue(self, item):
-        return super().search(item)
+        current = self._head
+        found = False
+        while current is not None and not found:
+            if current.get_data() == item:
+                found = True
+            else:
+                current = current.get_next()
+
+        return found
+    
+    def __repr__(self):
+        representation = ""
+        current = self._head
+        while current is not None:
+            representation += f"<-> {current.get_data()} "
+            current = current.get_next()
+        return representation
 
 example = NodeQueue()
 example.enqueue(22)
@@ -32,7 +68,4 @@ example.dequeue()
 print(example)
 example.dequeue()
 print(example)
-example.dequeue()
-print(example)
-
     

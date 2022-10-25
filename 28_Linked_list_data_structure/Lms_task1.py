@@ -59,6 +59,26 @@ class UnorderedList:
 
     def is_empty(self):
         return self._head is None
+    
+    def size(self):
+        current = self._head
+        count = 0
+        while current is not None:
+            count += 1
+            current = current.get_next()
+
+        return count
+    
+    def search(self, item):
+        current = self._head
+        found = False
+        while current is not None and not found:
+            if current.get_data() == item:
+                found = True
+            else:
+                current = current.get_next()
+
+        return found
 
     def add(self, item):
         temp = Node(item)
@@ -108,32 +128,6 @@ class UnorderedList:
         self.remove(to_pop)
         return to_pop
     
-    def __getitem__(self, number):
-        if isinstance(number, slice):
-            return list(list(self.slice_index()).__getitem__(number))
-        else:
-            return self.slice_index(number)
-
-    def size(self):
-        current = self._head
-        count = 0
-        while current is not None:
-            count += 1
-            current = current.get_next()
-
-        return count
-
-    def search(self, item):
-        current = self._head
-        found = False
-        while current is not None and not found:
-            if current.get_data() == item:
-                found = True
-            else:
-                current = current.get_next()
-
-        return found
-
     def remove(self, item):
         current = self._head
         previous = None
@@ -149,6 +143,12 @@ class UnorderedList:
             self._head = current.get_next()
         else:
             previous.set_next(current.get_next())
+    
+    def __getitem__(self, number):
+        if isinstance(number, slice):
+            return list(list(self.slice_index()).__getitem__(number))
+        else:
+            return self.slice_index(number)
 
     def __repr__(self):
         representation = ""
@@ -157,7 +157,6 @@ class UnorderedList:
             representation += f"<- {current.get_data()} "
             current = current.get_next()
         return representation
-
 
 
 if __name__ == "__main__":
