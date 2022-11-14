@@ -9,7 +9,6 @@ s = socket(AF_INET, SOCK_DGRAM)
 s.bind((HOST, PORT))
 print('UDP server up and listening')
 while True:
-    bytes_addres_pair = s.recvfrom(maxsize)
-    message = bytes_addres_pair[0]
-    address = bytes_addres_pair[1]
+    message_from_client, address = s.recvfrom(maxsize)
     s.sendto(bytes_to_send, address)
+    print(message_from_client)
