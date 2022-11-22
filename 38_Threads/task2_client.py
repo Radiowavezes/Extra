@@ -3,9 +3,7 @@ from socket import *
 
 s = socket(AF_INET, SOCK_STREAM)
 s.connect(('127.0.0.1', 64623))
-# s.send(message.encode())
-# data = s.recv(1024)
-# print(f'Received: {data.decode()}')
+
 while True:
     message = input('Type your message here: ')
     s.send(message.encode())
