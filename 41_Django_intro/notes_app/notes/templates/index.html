@@ -1,0 +1,42 @@
+{% extends "main.html" %}
+{% block content %}
+<body>
+      <main>
+        <section>
+              <h1 class="font-effect-shadow-multiple">{% filter upper %}notes{% endfilter %}</h1>
+              <p class="center">
+                Here you can see all of your notes
+              </p>
+            <div class="center">
+            <a href="{% url "create" %}" class="myButton">
+              Create
+            </a>
+          </div>
+        </section>
+                      
+                      {% for note in my_notes %}
+                      <div class="container">
+                        <div class="note">
+                      <h3>{{note.title}}</h3>
+                      <p>
+                        {{note.text}}
+                      </p>
+                      <p>
+                        {{note.pub_date}}
+                      </p>
+                          <p>
+                          <a href="{% url "delete" note.id%}" type="button" class="myButton">
+                            Delete
+                          </a>   
+                          <a href="{% url "update" note.id %}" type="button" class="myButton">
+                          Update
+                         </a>
+                        </p>
+                    </div>
+                    </div>
+            {% endfor %}
+
+     </main>
+  </body>
+</html>
+{% endblock %}

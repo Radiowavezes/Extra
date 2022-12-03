@@ -55,7 +55,7 @@ ROOT_URLCONF = "notes_app.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [],
+        "DIRS": [BASE_DIR / 'templates'],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
@@ -76,8 +76,12 @@ WSGI_APPLICATION = "notes_app.wsgi.application"
 
 DATABASES = {
     "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'Myserver',
+        'USER': 'postgres',
+        'PASSWORD': 'Ab2107',
+        'HOST': '127.0.0.1',
+        'PORT': '8006',
     }
 }
 
@@ -116,8 +120,10 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
+STATIC_ROOT = BASE_DIR / "static"
 STATIC_URL = "static/"
-
+MEDIA_ROOT = BASE_DIR / "media"
+MEDIA_URL = "media/"
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
