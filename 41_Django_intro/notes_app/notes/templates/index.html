@@ -13,10 +13,9 @@
             </a>
           </div>
         </section>
-                      
+        <div class="container">
                       {% for note in my_notes %}
-                      <div class="container">
-                        <div class="note">
+                      <div class="note">
                       <h3>{{note.title}}</h3>
                       <p>
                         {{note.text}}
@@ -33,9 +32,8 @@
                          </a>
                         </p>
                     </div>
-                    </div>
             {% endfor %}
-
+          </div>
      </main>
   </body>
 </html>

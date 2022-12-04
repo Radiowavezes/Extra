@@ -52,7 +52,5 @@ body {
 .container {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  max-width: 300px;
-  margin: 0 auto;
-  margin-top: 20vh;
+  grid-gap: 20px;
 }
