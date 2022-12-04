@@ -1,0 +1,10 @@
+{% extends "main.html" %}
+{% block content %}
+<h2>Add new note</h2>
+
+<form action="create_data/" method="post">
+    {% csrf_token %} Title: <input name="title"/>
+    Text: <input name="text"/>
+    <input type="submit" value="Add" class="btn btn-danger"/>
+</form>
+{% endblock %}
